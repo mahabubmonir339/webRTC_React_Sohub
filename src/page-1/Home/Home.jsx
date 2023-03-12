@@ -3,7 +3,7 @@ import outGoingCall from '../../assets/img/home/phone-call-communication-svgrepo
 import billing from '../../assets/img/home/billing-svgrepo-com.svg';
 import vartual1 from '../../assets/img/home/dial-pad-svgrepo-com.svg';
 import vartual2 from '../../assets/img/home/phone-mobile-user-svgrepo-com.svg';
-import news from '../../assets/img/home/news-svgrepo-com.svg';
+import news from '../../assets/img/home/news.svg';
 import statistic from '../../assets/img/home/statistics-svgrepo-com.svg';
 import { Link } from 'react-router-dom';
 
