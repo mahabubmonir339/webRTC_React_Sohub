@@ -2,31 +2,50 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Widget_Integration = () => {
-    const [value1, setValue1] = useState(`<div id="myZadarmaCallmeWidget13328"></div>
-    <script>
-      var myZadarmaCallmeWidget13328;
-      var myZadarmaCallmeWidgetFn13328 = function() {
-        myZadarmaCallmeWidget13328 = new ZadarmaCallmeWidget("myZadarmaCallmeWidget13328");
-        myZadarmaCallmeWidget13328.create({
-    "widgetId": "dA8taFUgpNX5u8czT5SRVC2j4JvzD6ra7kmhf4kt86bkLGr4vNHx1pgtcrRdss7A1kNbjmV9R6cKxZG924fda4gv21kk3nkk843c654b3c4f5126ecaeeaf2a6854bb4", "sipId":"358553", "domElement":"myZadarmaCallmeWidget13328" }, { "shape":"square", "language":"en", "width":"0", "dtmf":false, "font": "'Trebuchet MS','Helvetica CY',sans-serif", "color_call": "rgb(255, 255, 255)", "color_bg_call": "rgb(126, 211, 33)", "color_border_call": "rgb(191, 233, 144)", "color_connection": "rgb(255, 255, 255)", "color_bg_connection": "rgb(33, 211, 166)", "color_border_connection": "rgb(144, 233, 211)", "color_calling": "rgb(255, 255, 255)", "color_border_calling": "rgb(255, 218, 128)", "color_bg_calling": "rgb(255, 181, 0)", "color_ended": "rgb(255, 255, 255)", "color_bg_ended": "rgb(164,164,164)", "color_border_ended": "rgb(210, 210, 210)"
+    const [value1, setValue1] = useState(`(function() {  
+        var script = document.createElement('script');  
+        script.src = 'https://sohub.com.bd/click-to-call/loader.js';  
+        document.getElementById('CallScripts').appendChild(script);}());
+        
+    var CallmeWidget;
+    var CallmeWidgetFn = function() {
+        CallmeWidget = new CallmeWidgetNew("CallmeWidget");
+        CallmeWidget.create({
+            "widgetId": "kkd8cVk8N21vesXKxvBfBebcUCGtaMy5cv18TT8PJ49eXrGxzt66R7S7kb96GeSmc8v9rthssgau1m3c6GT4gTg2Unesb8zz7c351bcafe4aeb79ac80e811dd16266c",
+            "sipId": "1234",
+            "domElement": "CallmeWidget"
+        }, {
+            "shape": "square",
+            "language": "en",
+            "width": "0",
+            "dtmf": false,
+            "dtmf_position": "top",
+            "dtmf_time_to_disappear": "20",
+            "font": "'Trebuchet MS','Helvetica CY',sans-serif",
+            "color_call": "rgb(255, 255, 255)",
+            "color_bg_call": "rgb(126, 211, 33)",
+            "color_border_call": "rgb(191, 233, 144)",
+            "color_connection": "rgb(255, 255, 255)",
+            "color_bg_connection": "rgb(33, 211, 166)",
+            "color_border_connection": "rgb(144, 233, 211)",
+            "color_calling": "rgb(255, 255, 255)",
+            "color_border_calling": "rgb(255, 218, 128)",
+            "color_bg_calling": "rgb(255, 181, 0)",
+            "color_ended": "rgb(255, 255, 255)",
+            "color_bg_ended": "rgb(164,164,164)",
+            "color_border_ended": "rgb(210, 210, 210)"
         });
-      };
-    
-      if (window.addEventListener) {
-        window.addEventListener('load', myZadarmaCallmeWidgetFn13328, false);
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', myZadarmaCallmeWidgetFn13328);
-      }
-    </script>`);
+    };
+    if (window.addEventListener) {
+        window.addEventListener('load', CallmeWidgetFn, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onload', CallmeWidgetFn);
+    }`);
 
-    const [value2, setValue2] = useState(`<div id='zadarmaScripts'></div>
-    <script>
-        (function() {
-           var script = document.createElement('script');
-        script.src = 'https://my.zadarma.com/callmewidget/v2.0.8/loader.js';
-        document.getElementById().appendChild(script);
-          }());
-    </script>`);
+    const [value2, setValue2] = useState(`<a href="#" class="float">
+    <div id="CallScripts"></div>
+    <div id="CallmeWidget"></div>
+    </a>`);
 
     const queryParams = new URLSearchParams(window.location.href);
     const shape = queryParams.get('shape');
@@ -62,7 +81,7 @@ const Widget_Integration = () => {
                                 className='p-5 m-8 bg-orange-50'
                                 name="postContent"
                                 defaultValue={value2}
-                                rows={8}
+                                rows={5}
                                 cols={120}
                             />
                         </label>
@@ -82,7 +101,7 @@ const Widget_Integration = () => {
                                 className='p-5 m-8 bg-orange-50 border-hidden max-w-full'
                                 name="postContent"
                                 defaultValue={value1}
-                                rows={25}
+                                rows={42}
                                 cols={120}
 
                             />
