@@ -11,7 +11,7 @@ import Click_To_Call_Button from './page-1/Click_To_Call_Button';
 import About from './page-1/About/About';
 import CreateWidget from './page-1/CreateWidget';
 import Widget_Integration from './page-1/Widget_Integration';
-import Mahabub from './page-1/Mahabub';
+import Backpu from './page-1/Backpu';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,12 +28,11 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="create_widget" element={<CreateWidget />} />
           <Route path="widget_integration" element={<Widget_Integration />} />
-          <Route path="mahabub" element={<Mahabub />} />
+          <Route path='backup' element={<Backpu />} />
         </Route>
       </Routes>
       <Footer></Footer>
     </div>
   )
 }
-
 export default App;
