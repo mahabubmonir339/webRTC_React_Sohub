@@ -1,8 +1,31 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Widget_Integration = () => {
-    const [value1, setValue1] = useState(`(function() {  
+
+
+    const [text1, setText1] = useState('');
+    const textareaRef1 = useRef(null);
+    const copyText1 = () => {
+        textareaRef1.current.select();
+        document.execCommand('copy');
+        alert(`Copied`);
+    };
+    const [text2, setText2] = useState('');
+    const textareaRef2 = useRef(null);
+    const copyText2 = () => {
+        textareaRef2.current.select();
+        document.execCommand('copy');
+        alert(`Copied`);
+    };
+
+    const [value1, setValue1] = useState(`<a href="#" class="float">
+    <div id="CallScripts"></div>
+    <div id="CallmeWidget"></div>
+    </a>`);
+
+
+    const [value2, setValue2] = useState(`(function() {  
         var script = document.createElement('script');  
         script.src = 'https://sohub.com.bd/click-to-call/loader.js';  
         document.getElementById('CallScripts').appendChild(script);}());
@@ -42,10 +65,7 @@ const Widget_Integration = () => {
         window.attachEvent('onload', CallmeWidgetFn);
     }`);
 
-    const [value2, setValue2] = useState(`<a href="#" class="float">
-    <div id="CallScripts"></div>
-    <div id="CallmeWidget"></div>
-    </a>`);
+
 
     const queryParams = new URLSearchParams(window.location.href);
     const shape = queryParams.get('shape');
@@ -54,7 +74,7 @@ const Widget_Integration = () => {
         backgroundColor: shape
     }
     const callButtonTc = {
-        Color: text
+        color: text
     }
 
     return (
@@ -74,17 +94,21 @@ const Widget_Integration = () => {
                     </div>
                     <div>
                         <p className='mx-8'>Insert the widget library load code at the very bottom of the website page, before the BODY closing tag.</p>
-                        <label className='m-8'>
+                        <br /><br />
+                        <div className='flex bg-orange-50 justify-between'>
                             <textarea
-                                style={{ color: "black" }}
+                                style={{ color: "black", outline: "0px none transparent" }}
                                 readOnly='readonly'
-                                className='p-5 m-8 bg-orange-50'
+                                className='p-5 m-8 bg-orange-50 border-hidden max-w-full'
                                 name="postContent"
-                                defaultValue={value2}
+                                ref={textareaRef1} onChange={(e) => setText1(e.target.value)}
+                                defaultValue={value1}
                                 rows={5}
                                 cols={120}
                             />
-                        </label>
+                            <button type="submit" className='text-xl text-orange-500 m-6 text-center text-justify' style={{ height: "50px" }} onClick={copyText1}>copy</button>
+                        </div>
+
                     </div>
                 </div>
                 <div>
@@ -94,18 +118,21 @@ const Widget_Integration = () => {
                     <div>
                         <p className='m-8'>Insert the widget code into the page of the website where the "Call us" button should be placed.</p>
                         <p className=' text-b mx-8'>Your widget code:</p>
-                        <label className='m-8'>
+                        <br /><br />
+                        <div className='flex bg-orange-50 justify-between'>
                             <textarea
-                                style={{ color: "black" }}
+                                style={{ color: "black", outline: "0px none transparent" }}
                                 readOnly='readonly'
                                 className='p-5 m-8 bg-orange-50 border-hidden max-w-full'
                                 name="postContent"
-                                defaultValue={value1}
+                                ref={textareaRef2} onChange={(e) => setText2(e.target.value)}
+                                defaultValue={value2}
                                 rows={42}
                                 cols={120}
 
                             />
-                        </label>
+                            <button type="submit" className='text-xl m-6 text-orange-500 text-center text-justify' style={{ height: "50px" }} onClick={copyText2}>copy</button>
+                        </div>
                     </div>
                 </div>
             </div>

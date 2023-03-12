@@ -28,7 +28,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="create_widget" element={<CreateWidget />} />
           <Route path="widget_integration" element={<Widget_Integration />} />
-          <Route path='backup' element={<Backpu />} />
+          <Route path="backup" element={<Backpu />} />
         </Route>
       </Routes>
       <Footer></Footer>
