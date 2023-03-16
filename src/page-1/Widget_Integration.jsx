@@ -19,6 +19,34 @@ const Widget_Integration = () => {
         alert(`Copied`);
     };
 
+    //color....................
+    const queryParams = new URLSearchParams(window.location.href);
+    //Initial... color
+    const shape = queryParams.get('shape');
+    const text = queryParams.get('text');
+    const frame = queryParams.get('frame');
+    //Dial color
+    const dialColorB = queryParams.get('dialColorB');
+    const dialColorT = queryParams.get('dialColorT');
+    const dialColorF = queryParams.get('dialColorF');
+    //call color
+    const callColorB = queryParams.get('callColorB');
+    const callColorT = queryParams.get('callColorT');
+    const callColorF = queryParams.get('callColorF');
+    //call end
+    const callEndColorB = queryParams.get('callEndColorB');
+    const callEndColorT = queryParams.get('callEndColorT');
+    const callEndColorF = queryParams.get('callEndColorF');
+    console.log(callEndColorB);
+    console.log(callEndColorT);
+    console.log(callEndColorF);
+    const callButtonBg = {
+        backgroundColor: shape
+    }
+    const callButtonTc = {
+        color: text
+    }
+    // TextArea...............
     const [value1, setValue1] = useState(`<a href="#" class="float">
     <div id="CallScripts"></div>
     <div id="CallmeWidget"></div>
@@ -45,18 +73,18 @@ const Widget_Integration = () => {
             "dtmf_position": "top",
             "dtmf_time_to_disappear": "20",
             "font": "'Trebuchet MS','Helvetica CY',sans-serif",
-            "color_call": "rgb(255, 255, 255)",
-            "color_bg_call": "rgb(126, 211, 33)",
-            "color_border_call": "rgb(191, 233, 144)",
-            "color_connection": "rgb(255, 255, 255)",
-            "color_bg_connection": "rgb(33, 211, 166)",
-            "color_border_connection": "rgb(144, 233, 211)",
-            "color_calling": "rgb(255, 255, 255)",
-            "color_border_calling": "rgb(255, 218, 128)",
-            "color_bg_calling": "rgb(255, 181, 0)",
-            "color_ended": "rgb(255, 255, 255)",
-            "color_bg_ended": "rgb(164,164,164)",
-            "color_border_ended": "rgb(210, 210, 210)"
+            "color_call": "hex('${text}')",
+            "color_bg_call": "hex('${shape}')",
+            "color_border_call": "hex('${frame}')",
+            "color_connection": "hex('${dialColorT}')",
+            "color_bg_connection": "hex('${dialColorB}')",
+            "color_border_connection": "hex('${dialColorF}')",
+            "color_calling": "hex('${callColorT}')",
+            "color_border_calling": "hex('${callColorB}')",
+            "color_bg_calling":"hex('${callColorF}')",
+            "color_ended": "hex('${callEndColorT}')",
+            "color_bg_ended": "hex('${callEndColorB}')",
+            "color_border_ended": "hex('${callEndColorF}')"
         });
     };
     if (window.addEventListener) {
@@ -67,15 +95,7 @@ const Widget_Integration = () => {
 
 
 
-    const queryParams = new URLSearchParams(window.location.href);
-    const shape = queryParams.get('shape');
-    const text = queryParams.get('text');
-    const callButtonBg = {
-        backgroundColor: shape
-    }
-    const callButtonTc = {
-        color: text
-    }
+
 
     return (
 

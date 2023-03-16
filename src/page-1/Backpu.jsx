@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Backpu = () => {
+function MyComponent() {
+    const [data, setData] = useState([]);
 
-
-    // const [isCopied, setIsCopied] = useState(false);
-
-    // TODO: Implement copy to clipboard functionality
-
-
+    useEffect(() => {
+        fetch('api.php')
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error(error));
+    }, []);
 
     return (
         <div>
-            <h1>Mahabub</h1>
-            {/* <input type="text" value={copyText} readOnly />
-            <button>
-                <span>{isCopied ? 'Copied!' : 'Copy'}</span>
-            </button> */}
+            {data.map((item, index) => (
+                <div key={index}>
+                    <span>{item.name}</span>
+                    <span>{item.age}</span>
+                </div>
+            ))}
         </div>
     );
-};
+}
 
-export default Backpu;
+export default MyComponent;

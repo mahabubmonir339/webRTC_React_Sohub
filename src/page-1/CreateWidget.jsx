@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import { SketchPicker } from 'react-color';
+import { SketchPicker, PhotoshopPicker, ChromePicker } from 'react-color';
 import { Link } from 'react-router-dom';
 import './Custom.css';
 
 const CreateWidget = () => {
+
+
+    const [color, setcolor] = useState(true);
+
+
     const [checkbox, setcheckbox] = useState(true);
     const [colorCheckboxB, setcolorCheckboxB] = useState(true);
     const [colorCheckboxT, setcolorCheckboxT] = useState(true);
-    const [currentColor, setcurrentColor] = useState('#2dd4bf');
+    //Initial... color
+    const [currentColor, setcurrentColor] = useState('#298ED6');
     const [currentTextColor, setcurrentTextColor] = useState('#ffffff');
+    const [currentFColor, setcurrentFColor] = useState('#B0D6F2');
+    //Dial color
+    const [dialColorB, setdialColorB] = useState('#913498');
+    const [dialColorT, setdialColorT] = useState('#ffffff');
+    const [dialColorF, setdialColorF] = useState('#F3D1F5');
+    //call color
+    const [callColorB, setcallColorB] = useState('#2b2822');
+    const [callColorT, setcallColorT] = useState('#ffffff');
+    const [callColorF, setcallColorF] = useState('#9C9C9C');
+    //call end
+    const [callEndColorB, setcallEndColorB] = useState('#F29107');
+    const [callEndColorT, setcallEndColorT] = useState('#ffffff');
+    const [callEndColorF, setcallEndColorF] = useState('#F9DCB4');
+
+
     const handleOnChange = (color) => {
         setcurrentColor(color.hex)
         return setcurrentColor;
@@ -107,13 +128,14 @@ const CreateWidget = () => {
                             </select>
                         </div>
                         <br /><br />
-                        <div className='flex gap-5 flex-wrap justify-center'>
+                        {/* <div className='flex gap-5 flex-wrap justify-center'>
                             <div>
-                                <label className='inline text-center' for="colorpicker">Call Button Background Color: <input onClick={() => setcolorCheckboxB(colorCheckboxB => !colorCheckboxB)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxB} />
+                                <label className='inline text-center' for="colorpicker">Call Button Background Color:
+                                    <input onClick={() => setcolorCheckboxB(colorCheckboxB => !colorCheckboxB)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxB} />
                                 </label>
 
                                 <br /><br />
-                                {colorCheckboxB ? '' : <SketchPicker
+                                {colorCheckboxB ? '' : <ChromePicker
                                     color={{ currentColor }}
                                     onChangeComplete={handleOnChange}
                                 />}
@@ -123,12 +145,113 @@ const CreateWidget = () => {
                                     <input onClick={() => setcolorCheckboxT(colorCheckboxT => !colorCheckboxT)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxT} />
                                 </label>
                                 <br /><br />
-                                {colorCheckboxT ? '' : <SketchPicker
+                                {colorCheckboxT ? '' : <ChromePicker
                                     color={{ currentTextColor }}
                                     onChangeComplete={handleOnTextChange} />}
                             </div>
-                        </div>
-                        <div>
+                        </div> */}
+                        <div className='flex gap-2 flex-wrap justify-between'>
+                            <div>
+                                <div className=''><strong className='mx-2'>Initial state colors</strong></div>
+                                <div className='border px-5 py-8 relative'>
+                                    <div className='flex'>
+                                        <p>Text </p>
+                                        <input className='mx-20' onChange={(e) => setcurrentTextColor(e.target.value)} value={currentTextColor} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentTextColor }}
+                                            onChangeComplete={handleOnTextChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Background </p>
+                                        <input className='mx-6' onChange={(e) => setcurrentColor(e.target.value)} value={currentColor} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentColor }}
+                                            onChangeComplete={handleOnChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Frame  </p>
+                                        <input className='mx-16' onChange={(e) => setcurrentFColor(e.target.value)} value={currentFColor} type="color" name="color" id="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className=''><strong className='mx-2'>Dial status colors</strong></div>
+                                <div className='border px-5 py-8 relative'>
+                                    <div className='flex'>
+                                        <p>Text </p>
+                                        <input className='mx-20' onChange={(e) => setdialColorT(e.target.value)} value={dialColorT} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentTextColor }}
+                                            onChangeComplete={handleOnTextChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Background </p>
+                                        <input className='mx-6' onChange={(e) => setdialColorB(e.target.value)} value={dialColorB} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentColor }}
+                                            onChangeComplete={handleOnChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Frame  </p>
+                                        <input className='mx-16' onChange={(e) => setdialColorF(e.target.value)} value={dialColorF} type="color" name="color" id="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className=''><strong className='mx-2'>Call status colors</strong></div>
+                                <div className='border px-5 py-8 relative'>
+                                    <div className='flex'>
+                                        <p>Text </p>
+                                        <input className='mx-20' onChange={(e) => setcallColorT(e.target.value)} value={callColorT} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentTextColor }}
+                                            onChangeComplete={handleOnTextChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Background </p>
+                                        <input className='mx-6' onChange={(e) => setcallColorB(e.target.value)} value={callColorB} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentColor }}
+                                            onChangeComplete={handleOnChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Frame  </p>
+                                        <input className='mx-16' onChange={(e) => setcallColorF(e.target.value)} value={callColorF} type="color" name="color" id="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className=''><strong className='mx-2'>Colors for call end</strong></div>
+                                <div className='border px-5 py-8 relative'>
+                                    <div className='flex'>
+                                        <p>Text </p>
+                                        <input className='mx-20' onChange={(e) => setcallEndColorT(e.target.value)} value={callEndColorT} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentTextColor }}
+                                            onChangeComplete={handleOnTextChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Background </p>
+                                        <input className='mx-6' onChange={(e) => setcallEndColorB(e.target.value)} value={callEndColorB} type="color" name="color" id="" />
+                                        <color
+                                            color={{ currentColor }}
+                                            onChangeComplete={handleOnChange}
+                                        />
+                                    </div>
+                                    <div className='flex'>
+                                        <p>Frame  </p>
+                                        <input className='mx-16' onChange={(e) => setcallEndColorF(e.target.value)} value={callEndColorF} type="color" name="color" id="" />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -143,7 +266,7 @@ const CreateWidget = () => {
                     <br />
                     <br />
                     <div className='flex flex gap-5 flex-wrap justify-center content-center'>
-                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}`}><button className="btn btn-sm btn-success">Create</button></Link>
+                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}&frame=${currentFColor}&dialColorB=${dialColorB}&dialColorT=${dialColorT}&dialColorF=${dialColorF}&callColorB=${callColorB}&callColorT=${callColorT}&callColorF=${callColorF}&callEndColorB=${callEndColorB}&callEndColorT=${callEndColorT}&callEndColorF=${callEndColorF}`}><button className="btn btn-sm btn-success">Create</button></Link>
                         <Link to='/click_to_call_button'><button className="btn btn-sm btn-danger mx-5">Cancel</button></Link>
                     </div>
                 </div>
