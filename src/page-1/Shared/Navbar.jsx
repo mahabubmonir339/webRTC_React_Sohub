@@ -11,10 +11,10 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to='/home'><li><a>Home</a></li></Link>
-                            <Link to='/'><li><a>Click To Call Button</a></li></Link>
-                            <Link to='/about'><li><a>About</a></li></Link>
-                            <Link to='/mahabub'><li><a>Backup</a></li></Link>
+                            <Link to='/home'><li>Home</li></Link>
+                            <Link to='/'><li>Click To Call Button</li></Link>
+                            <Link to='/about'><li>About</li></Link>
+                            <Link to='/mahabub'><li>Backup</li></Link>
                         </ul>
                     </div>
                 </div>

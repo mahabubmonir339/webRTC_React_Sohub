@@ -46,7 +46,8 @@ const CreateWidget = () => {
 
     }
     ///..........shapeButton...................
-    const [selectValue, setSelectValue] = useState('Rectangular'); 
+    const [selectValue, setSelectValue] = useState('Rectangular');
+
     const handleSelectChange = (event) => {
         setSelectValue(event.target.value);
     }
@@ -168,6 +169,28 @@ const CreateWidget = () => {
                             </select>
                         </div>
                         <br /><br />
+                        {/* <div className='flex gap-5 flex-wrap justify-center'>
+                            <div>
+                                <label className='inline text-center' for="colorpicker">Call Button Background Color:
+                                    <input onClick={() => setcolorCheckboxB(colorCheckboxB => !colorCheckboxB)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxB} />
+                                </label>
+
+                                <br /><br />
+                                {colorCheckboxB ? '' : <ChromePicker
+                                    color={{ currentColor }}
+                                    onChangeComplete={handleOnChange}
+                                />}
+                            </div>
+                            <div>
+                                <label className='inline text-center' for="colorpicker">Call Button text Color:
+                                    <input onClick={() => setcolorCheckboxT(colorCheckboxT => !colorCheckboxT)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxT} />
+                                </label>
+                                <br /><br />
+                                {colorCheckboxT ? '' : <ChromePicker
+                                    color={{ currentTextColor }}
+                                    onChangeComplete={handleOnTextChange} />}
+                            </div>
+                        </div> */}
                         <div className='flex gap-2 flex-wrap justify-between'>
                             <div>
                                 <div className=''><strong className='mx-2'>Initial state colors</strong></div>

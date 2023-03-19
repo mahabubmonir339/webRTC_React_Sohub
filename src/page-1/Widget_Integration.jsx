@@ -37,9 +37,16 @@ const Widget_Integration = () => {
     const callEndColorB = queryParams.get('callEndColorB');
     const callEndColorT = queryParams.get('callEndColorT');
     const callEndColorF = queryParams.get('callEndColorF');
-    console.log(callEndColorB);
-    console.log(callEndColorT);
-    console.log(callEndColorF);
+    //shapeButton
+    const shapeButton = queryParams.get('shapeButton');
+    //DTMF true / false...
+
+    //DTMF keyboard.......
+    const dtmf_position = queryParams.get('DTMF-K');
+    //DTMF Input
+    const dtmf_time_to_disappear = queryParams.get('selectValueI');
+
+    console.log(dtmf_position);
     const callButtonBg = {
         backgroundColor: shape
     }
@@ -47,7 +54,7 @@ const Widget_Integration = () => {
         color: text
     }
     // TextArea...............
-    const [value1, setValue1] = useState(`<a href="#" class="float">
+    const [value1, setValue1] = useState(`<a href="#" className="float">
     <div id="CallScripts"></div>
     <div id="CallmeWidget"></div>
     </a>`);
@@ -66,12 +73,12 @@ const Widget_Integration = () => {
             "sipId": "1234",
             "domElement": "CallmeWidget"
         }, {
-            "shape": "square",
+            "shape": "${shapeButton}",
             "language": "en",
             "width": "0",
             "dtmf": false,
-            "dtmf_position": "top",
-            "dtmf_time_to_disappear": "20",
+            "dtmf_position": "${dtmf_position}",
+            "dtmf_time_to_disappear": "${dtmf_time_to_disappear}",
             "font": "'Trebuchet MS','Helvetica CY',sans-serif",
             "color_call": "hex('${text}')",
             "color_bg_call": "hex('${shape}')",

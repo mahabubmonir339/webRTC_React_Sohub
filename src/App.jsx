@@ -11,11 +11,10 @@ import Click_To_Call_Button from './page-1/Click_To_Call_Button';
 import About from './page-1/About/About';
 import CreateWidget from './page-1/CreateWidget';
 import Widget_Integration from './page-1/Widget_Integration';
-import Backpu from './page-1/Backpu';
+import Backup from './page-1/Backup';
+import Ruf from './page-1/Ruf';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div>
       <Navbar></Navbar>
@@ -28,7 +27,8 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="create_widget" element={<CreateWidget />} />
           <Route path="widget_integration" element={<Widget_Integration />} />
-          <Route path="backup" element={<Backpu />} />
+          <Route path="backup" element={<Backup />} />
+          <Route path="ruf" element={<Ruf />} />
         </Route>
       </Routes>
       <Footer></Footer>
