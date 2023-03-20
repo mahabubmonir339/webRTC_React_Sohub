@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Footer from './page-1/Shared/Footer';
 import Navbar from './page-1/Shared/Navbar';
@@ -22,7 +21,6 @@ function App() {
         <Route>
           <Route path="click_to_call_button" element={<Click_To_Call_Button />} />
           <Route path="/" element={<Click_To_Call_Button />} />
-          {/* <Route path="/" element={<Home />} /> */}
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="create_widget" element={<CreateWidget />} />

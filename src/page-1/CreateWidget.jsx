@@ -5,7 +5,12 @@ import './Custom.css';
 const CreateWidget = () => {
     // DTMF on/off section
     const [visible, setVisible] = useState(false);
-
+    if (visible === true) {
+        const positive = 'true';
+    }
+    else if (visible === false) {
+        const negative = 'false';
+    }
 
     //................................
     const [checkbox, setcheckbox] = useState(false);
@@ -45,8 +50,14 @@ const CreateWidget = () => {
         color: currentTextColor
 
     }
+    // font Style..............
+    const [fontSelect, setFontSelect] = useState('Trebuchet MS, Helvetica CY, sans-serif');
+    const fontFunction = (event) => {
+        setFontSelect(event.target.value);
+    }
+    console.log(fontSelect);
     ///..........shapeButton...................
-    const [selectValue, setSelectValue] = useState('Rectangular'); 
+    const [selectValue, setSelectValue] = useState('Rectangular');
     const handleSelectChange = (event) => {
         setSelectValue(event.target.value);
     }
@@ -57,7 +68,6 @@ const CreateWidget = () => {
     }
     // DTMF Input.....
     const [selectValueI, setSelectValueI] = useState('20');
-    console.log(selectValueI);
     const handleSelectChangeI = (event) => {
         setSelectValueI(event.target.value);
     }
@@ -158,13 +168,13 @@ const CreateWidget = () => {
                             <label className="control-label">
                                 Font:
                             </label>
-                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange="changeCss();">
-                                <option value="'Trebuchet MS','Helvetica CY',sans-serif">Trebuchet MS, Helvetica CY, sans-serif</option>
-                                <option value="'Times New Roman','Times CY','Nimbus Roman No9 L',serif">Times New Roman, Times CY, Nimbus Roman No9 L,  serif</option>
-                                <option value="Arial,'Helvatica CY','Nimbus Sans L','sans-serif'">Arial, Helvatica CY, Nimbus Sans L, sans-serif</option>
-                                <option value="Verdana,Arial,'Geneva CY','DejaVu Sans',sans-serif">Verdana, Geneva CY, DejaVu Sans, sans-serif</option>
-                                <option value="Georgia,'Century Schoolbook L','Times New Roman','Times CY',Times,serif">Georgia, Century Schoolbook L, Times New Roman, Times CY, Times, serif</option>
-                                <option value="Geneva,Arial,Helvetica,sans-serif">Geneva, Arial, Helvetica, sans-serif</option>
+                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange={fontFunction} value={fontSelect}>
+                                <option>Trebuchet MS, Helvetica CY, sans-serif</option>
+                                <option>Times New Roman, Times CY, Nimbus Roman No9 L,  serif</option>
+                                <option>Arial, Helvatica CY, Nimbus Sans L, sans-serif</option>
+                                <option>Verdana, Geneva CY, DejaVu Sans, sans-serif</option>
+                                <option>Georgia, Century Schoolbook L, Times New Roman, Times CY, Times, serif</option>
+                                <option>Geneva, Arial, Helvetica, sans-serif</option>
                             </select>
                         </div>
                         <br /><br />
@@ -284,7 +294,7 @@ const CreateWidget = () => {
                     <br />
                     <br />
                     <div className='flex flex gap-5 flex-wrap justify-center content-center'>
-                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}&frame=${currentFColor}&dialColorB=${dialColorB}&dialColorT=${dialColorT}&dialColorF=${dialColorF}&callColorB=${callColorB}&callColorT=${callColorT}&callColorF=${callColorF}&callEndColorB=${callEndColorB}&callEndColorT=${callEndColorT}&callEndColorF=${callEndColorF}&shapeButton=${selectValue}&DTMF-K=${selectValueK}&selectValueI=${selectValueI}`}><button className="btn btn-sm btn-success">Create</button></Link>
+                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}&frame=${currentFColor}&dialColorB=${dialColorB}&dialColorT=${dialColorT}&dialColorF=${dialColorF}&callColorB=${callColorB}&callColorT=${callColorT}&callColorF=${callColorF}&callEndColorB=${callEndColorB}&callEndColorT=${callEndColorT}&callEndColorF=${callEndColorF}&shapeButton=${selectValue}&DTMF-K=${selectValueK}&selectValueI=${selectValueI}&visible=${visible}&font=${fontSelect}`}><button className="btn btn-sm btn-success">Create</button></Link>
                         <Link to='/click_to_call_button'><button className="btn btn-sm btn-danger mx-5">Cancel</button></Link>
                     </div>
                 </div>

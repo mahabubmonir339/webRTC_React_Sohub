@@ -40,13 +40,14 @@ const Widget_Integration = () => {
     //shapeButton
     const shapeButton = queryParams.get('shapeButton');
     //DTMF true / false...
-
+    const visible = queryParams.get('visible');
     //DTMF keyboard.......
     const dtmf_position = queryParams.get('DTMF-K');
     //DTMF Input
     const dtmf_time_to_disappear = queryParams.get('selectValueI');
-
-    console.log(dtmf_position);
+    //font select.........
+    const fontSelect = queryParams.get('font');
+    // color shape ......
     const callButtonBg = {
         backgroundColor: shape
     }
@@ -76,22 +77,22 @@ const Widget_Integration = () => {
             "shape": "${shapeButton}",
             "language": "en",
             "width": "0",
-            "dtmf": false,
+            "dtmf": "${visible}",
             "dtmf_position": "${dtmf_position}",
             "dtmf_time_to_disappear": "${dtmf_time_to_disappear}",
-            "font": "'Trebuchet MS','Helvetica CY',sans-serif",
-            "color_call": "hex('${text}')",
-            "color_bg_call": "hex('${shape}')",
-            "color_border_call": "hex('${frame}')",
-            "color_connection": "hex('${dialColorT}')",
-            "color_bg_connection": "hex('${dialColorB}')",
-            "color_border_connection": "hex('${dialColorF}')",
-            "color_calling": "hex('${callColorT}')",
-            "color_border_calling": "hex('${callColorB}')",
-            "color_bg_calling":"hex('${callColorF}')",
-            "color_ended": "hex('${callEndColorT}')",
-            "color_bg_ended": "hex('${callEndColorB}')",
-            "color_border_ended": "hex('${callEndColorF}')"
+            "font": "${fontSelect}",
+            "color_call": "${text}",
+            "color_bg_call": "${shape}",
+            "color_border_call": "${frame}",
+            "color_connection": "${dialColorT}",
+            "color_bg_connection": "${dialColorB}",
+            "color_border_connection": "${dialColorF}",
+            "color_calling": "${callColorT}",
+            "color_border_calling": "${callColorB}",
+            "color_bg_calling":"${callColorF}",
+            "color_ended": "${callEndColorT}",
+            "color_bg_ended": "${callEndColorB}",
+            "color_border_ended": "${callEndColorF}"
         });
     };
     if (window.addEventListener) {
