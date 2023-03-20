@@ -51,7 +51,7 @@ const CreateWidget = () => {
 
     }
     // font Style..............
-    const [fontSelect, setFontSelect] = useState('Trebuchet MS, Helvetica CY, sans-serif');
+    const [fontSelect, setFontSelect] = useState('');
     const fontFunction = (event) => {
         setFontSelect(event.target.value);
     }
@@ -75,7 +75,7 @@ const CreateWidget = () => {
 
         <div style={{ backgroundColor: 'white', padding: '20px' }}><br /><br />
 
-            <h2 className='text-4xl'>Creating a widget</h2>
+            <h2 className='text-4xl'>Customize Your Call Button</h2>
             <br /><br />
             <p>In order for the widget to be functional you need to determine which SIP will receive calls.  Calls from the widget will come to your SIP from number 00500, on the PBX - from number Widget.</p>
             <div><br /><br />
@@ -168,13 +168,13 @@ const CreateWidget = () => {
                             <label className="control-label">
                                 Font:
                             </label>
-                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange={fontFunction} value={fontSelect}>
-                                <option>Trebuchet MS, Helvetica CY, sans-serif</option>
-                                <option>Times New Roman, Times CY, Nimbus Roman No9 L,  serif</option>
-                                <option>Arial, Helvatica CY, Nimbus Sans L, sans-serif</option>
-                                <option>Verdana, Geneva CY, DejaVu Sans, sans-serif</option>
-                                <option>Georgia, Century Schoolbook L, Times New Roman, Times CY, Times, serif</option>
-                                <option>Geneva, Arial, Helvetica, sans-serif</option>
+                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange={fontFunction}>
+                                <option value="'Trebuchet MS','Helvetica CY',sans-serif">Trebuchet MS, Helvetica CY, sans-serif</option>
+                                <option value="'Times New Roman','Times CY','Nimbus Roman No9 L',serif">Times New Roman, Times CY, Nimbus Roman No9 L,  serif</option>
+                                <option value="Arial,'Helvatica CY','Nimbus Sans L','sans-serif'">Arial, Helvatica CY, Nimbus Sans L, sans-serif</option>
+                                <option value="Verdana,Arial,'Geneva CY','DejaVu Sans',sans-serif">Verdana, Geneva CY, DejaVu Sans, sans-serif</option>
+                                <option value="Georgia,'Century Schoolbook L','Times New Roman','Times CY',Times,serif">Georgia, Century Schoolbook L, Times New Roman, Times CY, Times, serif</option>
+                                <option value="Geneva,Arial,Helvetica,sans-serif">Geneva, Arial, Helvetica, sans-serif</option>
                             </select>
                         </div>
                         <br /><br />

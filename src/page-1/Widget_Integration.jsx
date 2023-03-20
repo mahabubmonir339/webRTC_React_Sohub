@@ -77,7 +77,7 @@ const Widget_Integration = () => {
             "shape": "${shapeButton}",
             "language": "en",
             "width": "0",
-            "dtmf": "${visible}",
+            "dtmf": ${visible},
             "dtmf_position": "${dtmf_position}",
             "dtmf_time_to_disappear": "${dtmf_time_to_disappear}",
             "font": "${fontSelect}",
