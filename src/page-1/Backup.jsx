@@ -5,7 +5,12 @@ import './Custom.css';
 const CreateWidget = () => {
     // DTMF on/off section
     const [visible, setVisible] = useState(false);
-
+    if (visible === true) {
+        const positive = 'true';
+    }
+    else if (visible === false) {
+        const negative = 'false';
+    }
 
     //................................
     const [checkbox, setcheckbox] = useState(false);
@@ -45,9 +50,14 @@ const CreateWidget = () => {
         color: currentTextColor
 
     }
+    // font Style..............
+    const [fontSelect, setFontSelect] = useState('');
+    const fontFunction = (event) => {
+        setFontSelect(event.target.value);
+    }
+    console.log(fontSelect);
     ///..........shapeButton...................
     const [selectValue, setSelectValue] = useState('Rectangular');
-
     const handleSelectChange = (event) => {
         setSelectValue(event.target.value);
     }
@@ -58,7 +68,6 @@ const CreateWidget = () => {
     }
     // DTMF Input.....
     const [selectValueI, setSelectValueI] = useState('20');
-    console.log(selectValueI);
     const handleSelectChangeI = (event) => {
         setSelectValueI(event.target.value);
     }
@@ -66,7 +75,7 @@ const CreateWidget = () => {
 
         <div style={{ backgroundColor: 'white', padding: '20px' }}><br /><br />
 
-            <h2 className='text-4xl'>Creating a widget</h2>
+            <h2 className='text-4xl'>Customize Your Call Button</h2>
             <br /><br />
             <p>In order for the widget to be functional you need to determine which SIP will receive calls.  Calls from the widget will come to your SIP from number 00500, on the PBX - from number Widget.</p>
             <div><br /><br />
@@ -159,7 +168,7 @@ const CreateWidget = () => {
                             <label className="control-label">
                                 Font:
                             </label>
-                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange="changeCss();">
+                            <select name="font" id="font" className="form-control input input-bordered w-full max-w-xs" onChange={fontFunction}>
                                 <option value="'Trebuchet MS','Helvetica CY',sans-serif">Trebuchet MS, Helvetica CY, sans-serif</option>
                                 <option value="'Times New Roman','Times CY','Nimbus Roman No9 L',serif">Times New Roman, Times CY, Nimbus Roman No9 L,  serif</option>
                                 <option value="Arial,'Helvatica CY','Nimbus Sans L','sans-serif'">Arial, Helvatica CY, Nimbus Sans L, sans-serif</option>
@@ -169,28 +178,6 @@ const CreateWidget = () => {
                             </select>
                         </div>
                         <br /><br />
-                        {/* <div className='flex gap-5 flex-wrap justify-center'>
-                            <div>
-                                <label className='inline text-center' for="colorpicker">Call Button Background Color:
-                                    <input onClick={() => setcolorCheckboxB(colorCheckboxB => !colorCheckboxB)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxB} />
-                                </label>
-
-                                <br /><br />
-                                {colorCheckboxB ? '' : <ChromePicker
-                                    color={{ currentColor }}
-                                    onChangeComplete={handleOnChange}
-                                />}
-                            </div>
-                            <div>
-                                <label className='inline text-center' for="colorpicker">Call Button text Color:
-                                    <input onClick={() => setcolorCheckboxT(colorCheckboxT => !colorCheckboxT)} type="checkbox" className="toggle toggle-primary mx-10" value={colorCheckboxT} />
-                                </label>
-                                <br /><br />
-                                {colorCheckboxT ? '' : <ChromePicker
-                                    color={{ currentTextColor }}
-                                    onChangeComplete={handleOnTextChange} />}
-                            </div>
-                        </div> */}
                         <div className='flex gap-2 flex-wrap justify-between'>
                             <div>
                                 <div className=''><strong className='mx-2'>Initial state colors</strong></div>
@@ -307,7 +294,7 @@ const CreateWidget = () => {
                     <br />
                     <br />
                     <div className='flex flex gap-5 flex-wrap justify-center content-center'>
-                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}&frame=${currentFColor}&dialColorB=${dialColorB}&dialColorT=${dialColorT}&dialColorF=${dialColorF}&callColorB=${callColorB}&callColorT=${callColorT}&callColorF=${callColorF}&callEndColorB=${callEndColorB}&callEndColorT=${callEndColorT}&callEndColorF=${callEndColorF}&shapeButton=${selectValue}&DTMF-K=${selectValueK}&selectValueI=${selectValueI}`}><button className="btn btn-sm btn-success">Create</button></Link>
+                        <Link to={`/widget_integration?&shape=${currentColor}&text=${currentTextColor}&frame=${currentFColor}&dialColorB=${dialColorB}&dialColorT=${dialColorT}&dialColorF=${dialColorF}&callColorB=${callColorB}&callColorT=${callColorT}&callColorF=${callColorF}&callEndColorB=${callEndColorB}&callEndColorT=${callEndColorT}&callEndColorF=${callEndColorF}&shapeButton=${selectValue}&DTMF-K=${selectValueK}&selectValueI=${selectValueI}&visible=${visible}&font=${fontSelect}`}><button className="btn btn-sm btn-success">Create</button></Link>
                         <Link to='/click_to_call_button'><button className="btn btn-sm btn-danger mx-5">Cancel</button></Link>
                     </div>
                 </div>
